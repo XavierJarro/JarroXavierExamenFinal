@@ -38,6 +38,10 @@ public class RecargaBean {
         cuenta = new Cuenta();
     }
 
+    public RecargaBean() {
+        iniciar();
+    }
+
     public Recarga getRecarga() {
         return recarga;
     }
@@ -80,7 +84,8 @@ public class RecargaBean {
 
     public String crearRecarga() {
         try {
-            recarga.setCodigo(on.codigoRecarga());
+            System.out.println(numeroCuenta + "cuentaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            //recarga.setCodigo(on.codigoRecarga());
             cuenta = on.buscarCuenta(numeroCuenta);
             if (cuenta != null) {
                 recarga.setCuenta(cuenta);

@@ -44,6 +44,7 @@ public class GestionRecarga implements GestionRecargaLocal {
 
     public Cuenta buscarCuenta(String numero) {
         Cuenta cue = new Cuenta();
+        System.out.println(cuentaDao.getCuentas()+"cuentassssssssssssssssssssssssssssssssssssss");
         for (Cuenta c : cuentaDao.getCuentas()) {
             if (c.getNumeroCuenta() == numero) {
                 System.out.println(c.getNumeroCuenta());
