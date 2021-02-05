@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/templateCajero.xhtml">
+            <ui:define name="title">Crear Cliente</ui:define>
+            <ui:define name="content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h:form role="form">
+                                            <div class="form-group">
+                                                <label>Cedula</label>
+                                                <h:inputText value="#{clienteBean.cliente.cedula}" maxlength="10"
+                                                             class="form-control">
+                                                </h:inputText>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <h:inputText id="nombre"
+                                                             value="#{clienteBean.cliente.nombre}"
+                                                             class="form-control form-control-line" required="true"
+                                                             validatorMessage="Ingresar minimo dos nombres" label=" ">
+                                                </h:inputText>
+                                                <h:message for="nombre" style="color:red" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Apellido</label>
+                                                <h:inputText id="apellido"
+                                                             value="#{clienteBean.cliente.apellido}"
+                                                             class="form-control form-control-line" required="true"
+                                                             validatorMessage="Ingresar minimo dos Apellidos" label=" ">
+                                                </h:inputText>
+                                                <h:message for="apellido" style="color:red" />
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <h1 class="page-header">Cuenta de Ahorros</h1>
+                                                    <div class="form-group">
+                                                        <label>Numero de Cuenta</label> <br />
+                                                        <h:inputText id="cuenta" value="#{clienteBean.numeroCuenta}"
+                                                                     class="form-control form-control-line" required="true"
+                                                                     >
+                                                        </h:inputText>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Saldo</label> <br />
+                                                        <h:inputText id="saldo" value="#{clienteBean.saldoCuenta}"
+                                                                     class="form-control form-control-line" required="true"
+                                                                     validatorMessage="Ingresar solo numeros y minimo $10"
+                                                                     label=" ">
+                                                            <f:validateLength minimum="2" />
+                                                            <f:validateRegex pattern="^[1-9][0-9]+" />
+                                                        </h:inputText>
+                                                        <h:message for="saldo" style="color:red" />
+                                                    </div>
+                                                </div>
+                                                <!-- /.col-lg-12 -->
+                                            </div>
+
+                                            <p:commandButton value="Guardar"
+                                                             action="#{clienteBean.crearCuenta()}" 
+                                                             class="btn btn-success btn-lg">
+                                            </p:commandButton>
+                                        </h:form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+
+</html>
