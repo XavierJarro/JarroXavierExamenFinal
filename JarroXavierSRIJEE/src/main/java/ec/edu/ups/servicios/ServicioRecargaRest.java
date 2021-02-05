@@ -8,6 +8,7 @@ package ec.edu.ups.servicios;
 import ec.edu.ups.negocio.GestionSriLocal;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -22,12 +23,12 @@ public class ServicioRecargaRest {
     @Inject
     private GestionSriLocal on;
 
-    @POST
+    @GET
     @Path("/transferenciaSri")
     @Produces("application/json")
-    @Consumes("application/json")
     public Respuesta transferenciaSri() {
         return on.aceptarRechazarFactura();
     }
+    
 
 }

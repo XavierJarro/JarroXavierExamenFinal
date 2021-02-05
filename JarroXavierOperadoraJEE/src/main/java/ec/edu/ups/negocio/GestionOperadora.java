@@ -26,7 +26,7 @@ public class GestionOperadora implements GestionOperadoraLocal {
             res.setCodigo(2);
             res.setEstado("rechazado");
         }
-
+        System.out.println(res);
         return res;
     }
 

@@ -43,20 +43,17 @@ public class GestionRecarga implements GestionRecargaLocal {
     }
 
     public Cuenta buscarCuenta(String numero) {
-        Cuenta cue = new Cuenta();
-        System.out.println(cuentaDao.getCuentas()+"cuentassssssssssssssssssssssssssssssssssssss");
+
         for (Cuenta c : cuentaDao.getCuentas()) {
-            if (c.getNumeroCuenta() == numero) {
-                System.out.println(c.getNumeroCuenta());
-                cue = c;
+            if (c.getNumeroCuenta().equalsIgnoreCase(numero)) {
+                return c;
             }
         }
-        return cue;
+        return null;
     }
 
     public int codigoRecarga() {
-        int codigo = 0;
-        codigo = recargaDao.getRecargas().size() + 1;
+        int codigo = recargaDao.getRecargas().size() + 1;
         return codigo;
     }
 

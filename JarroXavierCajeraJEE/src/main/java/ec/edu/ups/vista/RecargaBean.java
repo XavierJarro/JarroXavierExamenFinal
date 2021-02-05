@@ -36,6 +36,7 @@ public class RecargaBean {
     private void iniciar() {
         recarga = new Recarga();
         cuenta = new Cuenta();
+        recarga.setEstado("aprobado");
     }
 
     public RecargaBean() {
@@ -84,8 +85,7 @@ public class RecargaBean {
 
     public String crearRecarga() {
         try {
-            System.out.println(numeroCuenta + "cuentaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            //recarga.setCodigo(on.codigoRecarga());
+            recarga.setCodigo(on.codigoRecarga());
             cuenta = on.buscarCuenta(numeroCuenta);
             if (cuenta != null) {
                 recarga.setCuenta(cuenta);
@@ -94,6 +94,7 @@ public class RecargaBean {
                 on.crearRecarga(recarga);
 
                 recarga = new Recarga();
+                cuenta = new Cuenta();
                 try {
                     FacesContext contex = FacesContext.getCurrentInstance();
                     contex.getExternalContext().redirect("Recarga.xhtml");
@@ -112,11 +113,11 @@ public class RecargaBean {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        /*OperadoraCli operadora = new OperadoraCli();
+        OperadoraCli operadora = new OperadoraCli();
         SriCli sri = new SriCli();
 
         System.out.println(operadora.operadora());
-        System.out.println(sri.sri());*/
+        System.out.println(sri.sri());
 
         return null;
     }

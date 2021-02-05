@@ -34,5 +34,5 @@ public class Respuesta {
     public String toString() {
         return "Respuesta{" + "codigo=" + codigo + ", estado=" + estado + '}';
     }
-
+    
 }
